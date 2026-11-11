@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة المهام</title>
+</head>
+<body>
+    <h1>أهلاً بك يا <%= username %>! 🚀</h1>
+    <h2>قائمة المهام الخاصة بك:</h2>
+    
+    <ul>
+        <% tasks.forEach(function(task) { %>
+            <!-- تم تعديل task إلى task.name لتعرض النص المحفوظ في قاعدة البيانات -->
+            <li><%= task.name %></li>
+        <% }); %>
+    </ul>
+
+    <!-- نموذج إدخال مهمة جديدة وضعناه هنا داخل الـ body -->
+    <form action="/add-task" method="POST">
+        <input type="text" name="newTask" placeholder="اكتبي مهمة جديدة هنا..." required>
+        <button type="submit">إضافة المهمة</button>
+    </form>
+
+</body>
+</html>
